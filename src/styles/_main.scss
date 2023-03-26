@@ -4,7 +4,31 @@ sans-serif;
 $pop:"Poppins",
 sans-serif;
 
+$mont:"Montserrat",
+sans-serif;
+
 $black:#121024;
-$grey:#8b8b8a;
+$grey:#626261;
 $yellow:#FFBA1A;
 $green:#10C79C;
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #10C79C #28282b00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #28282b00;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #10C79C;
+    border-radius: 10px;
+}

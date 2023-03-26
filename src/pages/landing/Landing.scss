@@ -1,0 +1,214 @@
+@import "../../styles/_main.scss";
+
+body {
+    overflow: hidden;
+}
+
+.landing_main {
+    padding: 6% 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+
+
+    .landing_left {
+        max-width: 50%;
+
+
+        .landing_heading {
+            h1 {
+                font-family: $mont;
+                font-size: 60px;
+                font-weight: 700;
+                color: $black;
+                letter-spacing: 0.13rem;
+                line-height: 1.2;
+                margin-bottom: 40px;
+
+                span {
+                    white-space: nowrap;
+
+                    @media screen and (max-width: 1200px) {
+                        white-space: normal;
+
+                    }
+                }
+            }
+
+        }
+
+
+        p {
+            font-family: $pop;
+            font-size: 18px;
+            width: 80%;
+            color: $grey;
+            letter-spacing: 0.1rem;
+            line-height: 1.5;
+        }
+
+        .button_div {
+            margin-top: 40px;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            width: 100%;
+
+
+            button {
+                font-family: $pop;
+                font-size: 17px;
+                font-weight: 600;
+                letter-spacing: 0.1rem;
+                padding: 10px 30px;
+                border-radius: 10px;
+                border: 3px solid $black;
+                width: 300px;
+                background-color: $green;
+                color: white;
+                white-space: nowrap;
+            }
+
+            p {
+                margin-bottom: 0px;
+                color: $black;
+                text-decoration: underline;
+                font-size: 17px;
+                line-height: 17px;
+            }
+        }
+    }
+
+    .landing_right {
+        max-width: 50%;
+        min-width: 50%;
+        display: flex;
+        justify-content: center;
+
+        img:nth-child(1) {
+            display: block;
+            width: 550px;
+
+            @media screen and (max-width: 1350px) {
+                width: 450px;
+
+            }
+
+            @media screen and (max-width: 1200px) {
+                width: 400px;
+
+            }
+        }
+
+        img:nth-child(2) {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .landing_main {
+        flex-direction: column;
+
+        .landing_left {
+            max-width: 100%;
+            margin-bottom: 40px;
+
+            .landing_heading {
+                h1 {
+                    font-size: 60px;
+                    margin-bottom: 40px;
+                    text-align: center;
+                }
+            }
+
+            p {
+                width: 100%;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .button_div {
+                justify-content: center;
+
+                p {
+                    display: none;
+                }
+
+                button {
+                    padding: 10px 20px;
+                }
+            }
+        }
+
+        .landing_right {
+            max-width: 100%;
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+
+            img:nth-child(1) {
+                display: none;
+            }
+
+            /*  img:nth-child(2) {
+                display: block;
+                width: 70%;
+            } */
+        }
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .landing_main {
+        padding: 6% 4%;
+
+        .landing_left {
+            .landing_heading {
+                h1 {
+                    font-size: 50px;
+                    margin-bottom: 40px;
+                    text-align: center;
+                }
+            }
+
+            p {
+                width: 100%;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .button_div {
+                justify-content: center;
+
+                p {
+                    display: none;
+                }
+
+                button {
+                    padding: 10px 20px;
+                    width: auto;
+                }
+            }
+        }
+
+        .landing_right {
+            max-width: 100%;
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+
+            img:nth-child(1) {
+                display: none;
+            }
+
+            /*  img:nth-child(2) {
+                display: block;
+                width: 70%;
+            } */
+        }
+    }
+}

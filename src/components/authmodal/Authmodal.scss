@@ -1,0 +1,139 @@
+@import '../../styles/main';
+
+.authmodal_parent {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .475);
+    inset: 0;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9900;
+    padding: 0 20px;
+
+    .authmodal_sub {
+        background-color: #fff;
+        overflow: hidden;
+        border-radius: 12px;
+        font-family: Montserrat, sans-serif;
+        /*  max-width: 65vw;
+        min-width: 65vw; */
+        width: auto;
+        height: 550px;
+        display: flex;
+        align-items: center;
+
+        gap: 2rem;
+        position: relative;
+
+
+        .auth_btndiv {
+            position: absolute;
+            top: 10px;
+            z-index: 100;
+            right: 2%;
+            cursor: pointer;
+            background-color: transparent;
+
+        }
+
+        .auth_btndiv button {
+            border-radius: 50% !important;
+            border: $green 2px solid;
+            height: 30px;
+            width: 30px;
+            font-family: "Montserrat", sans-serif !important;
+            font-weight: 600;
+        }
+
+
+
+        .authmodalsub_left {
+
+            flex-grow: 0;
+            width: 380px;
+            position: relative;
+            padding: 48px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+
+
+            img {
+                /*   width: 280px; */
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .authmodalsub_right {
+            flex-grow: 1;
+            width: 480px;
+            padding: 48px;
+            overflow: scroll;
+            height: 100%;
+
+            h1 {
+                color: $black;
+                font-family: $mont;
+                letter-spacing: 2px;
+                font-weight: 600;
+                margin-bottom: 40px;
+            }
+
+            label {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: $black;
+                font-family: $mont;
+                letter-spacing: 2px;
+            }
+
+            input {
+                font-family: $pop;
+            }
+
+            .namediv {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .inputdiv {
+                margin-bottom: 30px;
+            }
+
+            button {
+                background-color: $yellow;
+                color: $black;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-family: $pop;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .authmodal_sub {
+        max-width: 85vw;
+
+        .authmodalsub_left {
+            display: none;
+        }
+
+        .authmodalsub_right {
+            .namediv {
+                flex-direction: column;
+            }
+        }
+    }
+
+
+}
