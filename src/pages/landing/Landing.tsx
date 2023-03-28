@@ -1,7 +1,10 @@
 import React from "react";
 import "./Landing.scss";
 import services from "../../assets/hero/services.svg";
-import services2 from "../../assets/hero/services_mobile.svg";
+import TrendingServices from "./trendingservices/TrendingServices";
+import Testimonials from "./testimonials/Testimonials";
+import Howitworks from "./howitworks/Howitworks";
+
 
 const Landing = () => {
     return (
@@ -28,9 +31,14 @@ const Landing = () => {
 
                 <div className="landing_right">
                     <img src={services} alt="" />
-                    {/*    <img src={services2} alt="" /> */}
                 </div>
             </div>
+
+            <Howitworks />
+
+            <TrendingServices />
+            <Testimonials />
+
         </>
     );
 };

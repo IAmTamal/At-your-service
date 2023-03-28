@@ -1,0 +1,36 @@
+@import "../../../styles/_main.scss";
+
+.trending_parent {
+
+    padding: 6% 8%;
+    width: 100%;
+
+    h1 {
+        font-family: $mont;
+        font-size: 40px;
+        font-weight: 700;
+        color: $black;
+        letter-spacing: 0.13rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    hr {
+        height: 2.5px;
+        width: 10%;
+        border: 2.5px solid $grey;
+        margin: auto;
+        margin-bottom: 80px;
+    }
+
+
+    .trendingcards_parent {
+
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+
+}

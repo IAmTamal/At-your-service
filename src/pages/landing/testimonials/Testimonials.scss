@@ -1,0 +1,44 @@
+@import "../../../styles/_main.scss";
+
+
+.testimonials_parent {
+
+
+    padding: 6% 8%;
+
+    h1 {
+        font-family: $mont;
+        font-size: 40px;
+        font-weight: 700;
+        color: $black;
+        letter-spacing: 0.13rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    hr {
+        height: 2.5px;
+        width: 10%;
+        border: 2.5px solid $grey;
+        margin: auto;
+        margin-bottom: 80px;
+    }
+
+}
+
+
+
+.swiper-wrapper {
+    height: 400px;
+}
+
+@media screen and (max-width: 500px) {
+    .swiper-wrapper {
+        height: 500px;
+    }
+
+}
+
+.swiper-pagination {
+    margin-top: 20px;
+}
