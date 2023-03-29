@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Authmodal.scss"
-import authbanner from "../../assets/authmodal/authbanner.svg"
+import authbanner from "../../assets/authmodal/authbanner.png"
 import { useBearStore } from '../../Store';
 
 const Authmodal = () => {

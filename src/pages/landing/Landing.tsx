@@ -1,6 +1,6 @@
 import React from "react";
 import "./Landing.scss";
-import services from "../../assets/hero/services.svg";
+import services from "../../assets/hero/services.png";
 import TrendingServices from "./trendingservices/TrendingServices";
 import Testimonials from "./testimonials/Testimonials";
 import Howitworks from "./howitworks/Howitworks";
