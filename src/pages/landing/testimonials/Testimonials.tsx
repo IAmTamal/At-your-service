@@ -33,13 +33,6 @@ const Testimonials = () => {
                     <SwiperSlide> <Testimonialcard /> </SwiperSlide>
                     <SwiperSlide> <Testimonialcard /> </SwiperSlide>
                     <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-
-
-
                 </Swiper> : <Swiper
                     slidesPerView={1}
                     spaceBetween={40}
@@ -57,17 +50,7 @@ const Testimonials = () => {
                     <SwiperSlide> <Testimonialcard /> </SwiperSlide>
                     <SwiperSlide> <Testimonialcard /> </SwiperSlide>
                     <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-
-
-
                 </Swiper>}
-
-
-
 
                 <br />
                 <br />

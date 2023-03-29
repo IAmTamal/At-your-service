@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Landing from './pages/landing/Landing'
 import Authmodal from './components/authmodal/Authmodal'
 import { useBearStore } from './Store'
+import Services from './pages/services/Services'
 
 const App = () => {
 
@@ -13,8 +14,10 @@ const App = () => {
       <Router>
         <Navbar />
         {isAuthmodalOpen && <Authmodal />}
+
         <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='/services' element={<Services />} />
         </Routes>
 
       </Router>
