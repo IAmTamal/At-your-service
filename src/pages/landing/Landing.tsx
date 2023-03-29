@@ -4,6 +4,7 @@ import services from "../../assets/hero/services.png";
 import TrendingServices from "./trendingservices/TrendingServices";
 import Testimonials from "./testimonials/Testimonials";
 import Howitworks from "./howitworks/Howitworks";
+import { Link } from "react-router-dom";
 
 
 const Landing = () => {
@@ -24,7 +25,9 @@ const Landing = () => {
                     </p>
 
                     <div className="button_div">
-                        <button className="btn ">Explore services</button>
+                        <Link to={"/services"}>
+                            <button className="btn ">Explore services</button>
+                        </Link>
                         <p>Why Servezy?</p>
                     </div>
                 </div>

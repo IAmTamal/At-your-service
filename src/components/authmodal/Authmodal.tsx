@@ -65,6 +65,16 @@ const Authmodal = () => {
                                 <input type="password" className="form-control" id="exampleInputPassword1" />
                             </div>
 
+                            {authstate !== "login" ? <p className='alreadytext'>Already have an account ? <span
+                                onClick={() => {
+                                    toggleAuthstate("login")
+                                }}
+                            >Login</span></p> : <p className='alreadytext'>Don't have an account ? <span
+                                onClick={() => {
+                                    toggleAuthstate("signup")
+                                }}
+                            >Signup</span></p>}
+
                             <button type="submit" className="btn btn-primary">
                                 {authstate === "login" ? "Login" : "Signup"}
                             </button>
