@@ -26,7 +26,7 @@ const Howitworks = () => {
 
 
                         <p className='col_title'>Choose from 50+ Services</p>
-                        <p className='col_desc'>Choose your desired service from range of 50+ services.</p>
+                        <p className='col_desc'>Choose your desired service from <br /> a range of 50+ services.</p>
                     </div>
                     <div className="col ">
                         <div className="iconround">

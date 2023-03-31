@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Authmodal.scss"
-import authbanner from "../../assets/authmodal/authbanner.svg"
+import authbanner from "../../assets/authmodal/authbanner.png"
 import { useBearStore } from '../../Store';
 
 const Authmodal = () => {
@@ -64,6 +64,16 @@ const Authmodal = () => {
                                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1" />
                             </div>
+
+                            {authstate !== "login" ? <p className='alreadytext'>Already have an account ? <span
+                                onClick={() => {
+                                    toggleAuthstate("login")
+                                }}
+                            >Login</span></p> : <p className='alreadytext'>Don't have an account ? <span
+                                onClick={() => {
+                                    toggleAuthstate("signup")
+                                }}
+                            >Signup</span></p>}
 
                             <button type="submit" className="btn btn-primary">
                                 {authstate === "login" ? "Login" : "Signup"}

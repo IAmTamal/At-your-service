@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import "./Navbar.scss"
 import hamburger from "../../assets/navbar/hamburger.svg"
 import { useBearStore } from '../../Store';
@@ -7,6 +7,9 @@ import { useBearStore } from '../../Store';
 const Navbar = () => {
     const toggleAuthModal = useBearStore((state) => state.toggleAuthModal);
     const toggleAuthstate = useBearStore((state) => state.toggleAuthstate);
+    const location = useLocation();
+
+
 
     return (
         <>
@@ -21,7 +24,7 @@ const Navbar = () => {
                         Home
                     </Link>
 
-                    <Link to={"/"}>Services</Link>
+                    <Link to={"/services"} className={location.pathname === "/services" ? "active" : ""} >Services</Link>
                     <Link to={"/"}>About</Link>
                 </div>
 

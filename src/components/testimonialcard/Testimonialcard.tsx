@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Testimonialcard.scss"
-import image from "../../assets/trending/dp.jpeg"
+import image from "../../assets/testimonials/riddhi.jpeg"
 
 const Testimonialcard = () => {
     return (
@@ -16,7 +16,7 @@ const Testimonialcard = () => {
                     <div className="testimonial_imagediv">
                         <img src={image} alt="" />
 
-                        <p>Nilesh Das</p>
+                        <p>Hitesh Das</p>
                     </div>
 
                 </div>
