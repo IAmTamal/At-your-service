@@ -1,0 +1,64 @@
+@import "../../styles/_main.scss";
+
+.services_main {
+    padding: 6% 8%;
+
+    .categories_div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .categories_btndiv {
+            display: flex;
+            gap: 20px;
+            width: 50%;
+
+            button {
+                /*   background-color: $green; */
+                /*  color: white; */
+                font-family: $mont;
+                font-weight: 600;
+                letter-spacing: 1px;
+                padding: 0px 10px;
+                border: none;
+                margin-bottom: 5px;
+                text-overflow: clip;
+                white-space: nowrap;
+
+            }
+
+            hr {
+                height: 4px;
+                border-radius: 5px;
+                width: 50%;
+                background-color: $green;
+                border: 2px solid $green;
+                margin: 0 auto;
+
+            }
+        }
+
+        .input-group {
+            width: 30%;
+            font-family: $pop;
+            font-weight: 600;
+            letter-spacing: 1px;
+
+            input {
+                border: 1px solid $black;
+            }
+
+            input:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    .servicesdiv {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+}
