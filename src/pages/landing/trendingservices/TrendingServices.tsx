@@ -6,6 +6,7 @@ import renovation from "../../../assets/trending/renovation.jpeg"
 import cleaningservice from "../../../assets/trending/cleaningservice.jpeg"
 import mechanicservice from "../../../assets/trending/mechanicservice.jpg"
 import hairremoval from "../../../assets/trending/hairremoval.jpg"
+import bikeservice from "../../../assets/trending/bikeservice.jpeg"
 import { Link } from 'react-router-dom'
 
 
@@ -22,7 +23,7 @@ const TrendingServices = () => {
                     <ServiceCard image={serviceimg} name="Car repairing" />
                     <ServiceCard image={renovation} name="Renovations" />
                     <ServiceCard image={cleaningservice} name="Cleaning" />
-                    <ServiceCard image={mechanicservice} name="Mechanics" />
+                    <ServiceCard image={bikeservice} name="Bike servicing" />
                     <ServiceCard image={hairremoval} name="Hair removal" />
 
                 </div>
