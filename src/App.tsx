@@ -5,6 +5,11 @@ import Landing from './pages/landing/Landing'
 import Authmodal from './components/authmodal/Authmodal'
 import { useBearStore } from './Store'
 import Services from './pages/services/Services'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+/* import dotenv from 'dotenv'; */
+/* dotenv.config(); */
 
 const App = () => {
 
@@ -12,6 +17,21 @@ const App = () => {
   return (
     <>
       <Router>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={1200}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+          closeButton={false}
+        />
+
+
         <Navbar />
         {isAuthmodalOpen && <Authmodal />}
 

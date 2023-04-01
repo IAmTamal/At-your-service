@@ -6,6 +6,20 @@ export interface IUser extends Document {
   userName: string;
   email: string;
   password: string;
+  servicesprovided: string[];
+  location: string;
+  charge: number;
+  availability: { day: string, time: string }[];
+  keywords: string[];
+  slug: string;
+  banner: {
+    data: Buffer;
+    contentType: string;
+  };
+  profilepic: {
+    data: Buffer;
+    contentType: string;
+  };
   createdAt: Date;
 }
 
@@ -15,6 +29,20 @@ const userSchema = new Schema<IUser>({
   userName: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  servicesprovided: { type: [String] },
+  location: { type: String },
+  charge: { type: Number },
+  availability: { type: [{ day: String, time: String }] },
+  keywords: { type: [String] },
+  slug: { type: String, unique: true },
+  banner: {
+    data: Buffer,
+    contentType: String,
+  },
+  profilepic: {
+    data: Buffer,
+    contentType: String,
+  },
   createdAt: { type: Date, default: Date.now },
 });
 

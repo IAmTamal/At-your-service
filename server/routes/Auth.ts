@@ -39,7 +39,7 @@ router.post("/register", async (req: Request, res: Response) => {
         const existingUser = await User.findOne({ email });
 
         if (existingUser) {
-            return res.status(409).json({ message: "User already exists" } as any);
+            return res.json({ message: "User already exists, please log in" } as any);
         }
 
         const hashedPassword = await bcrypt.hash(password, 12);
@@ -50,11 +50,10 @@ router.post("/register", async (req: Request, res: Response) => {
             email,
             password: hashedPassword,
         });
-        const result = await user.save();
 
-        return res.status(201).json(result as IUser);
+        await user.save();
+        return res.status(201).json({ message: "Signed you up, please login" });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: "Internal Server Error" } as any);
     }
 });
@@ -85,7 +84,7 @@ router.post("/login", async (req: Request, res: Response) => {
         const existingUser = await User.findOne({ email });
 
         if (!existingUser) {
-            return res.status(409).json({ message: "User doesnot exists" } as any);
+            return res.json({ message: "User doesnot exists" } as any);
         }
 
         const isPasswordCorrect = await bcrypt.compare(
@@ -94,7 +93,7 @@ router.post("/login", async (req: Request, res: Response) => {
         );
 
         if (!isPasswordCorrect) {
-            return res.status(409).json({ message: "Invalid credentials" } as any);
+            return res.json({ message: "Invalid credentials" } as any);
         }
 
         const payload = { UserId: { id: existingUser._id } };
@@ -114,7 +113,6 @@ router.post("/login", async (req: Request, res: Response) => {
             return res.status(201).json({ message: "Logged in successfully" });
         });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: "Internal Server Error" } as any);
     }
 });
