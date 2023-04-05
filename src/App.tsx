@@ -7,6 +7,7 @@ import { useBearStore } from './Store'
 import Services from './pages/services/Services'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Profile from './pages/profile/Profile'
 
 /* import dotenv from 'dotenv'; */
 /* dotenv.config(); */
@@ -14,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
 
   const isAuthmodalOpen = useBearStore((state) => state.isAuthmodalOpen);
+  const userprofile = useBearStore((state) => state.userprofile);
+
   return (
     <>
       <Router>
@@ -38,6 +41,8 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/services' element={<Services />} />
+          {/*    <Route path='/services' element={<Services />} /> */}
+          <Route path="/:username" element={<Profile />} />
         </Routes>
 
       </Router>

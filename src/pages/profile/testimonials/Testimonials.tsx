@@ -5,23 +5,23 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Pagination, Autoplay } from "swiper";
 import Testimonialcard from '../../../components/testimonialcard/Testimonialcard';
-import "./Testimonials.scss"
 import testimonialData from './testimonialData';
+import "./Testimonials.scss"
 
 
 const Testimonials = () => {
     return (
         <>
-            <div className="testimonials_parent">
 
-                <h1>What does our users say ?</h1>
+            <div className="pf_testimonials_parent">
+                <h1>Hear from my clients</h1>
                 <hr />
 
                 {window.innerWidth > 1200 ? <Swiper
                     slidesPerView={2}
                     spaceBetween={40}
                     autoplay={{
-                        delay: 2500,
+                        delay: 4500,
                     }}
                     pagination={{
                         clickable: true,
@@ -40,7 +40,7 @@ const Testimonials = () => {
                     slidesPerView={1}
                     spaceBetween={40}
                     autoplay={{
-                        delay: 2500,
+                        delay: 4500,
                     }}
                     pagination={{
                         clickable: true,
@@ -56,11 +56,7 @@ const Testimonials = () => {
                         })
                     }
                 </Swiper>}
-
-                <br />
-                <br />
-                <br />
-            </div >
+            </div>
 
         </>
     )

@@ -1,0 +1,25 @@
+@import "../../../styles/_main.scss";
+
+
+.pf_testimonials_parent {
+
+    h1 {
+        font-family: $mont;
+        font-size: 50px;
+        font-weight: 700;
+        color: #121024;
+        letter-spacing: 0.13rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        text-align: center;
+
+    }
+
+    hr {
+        height: 2.5px;
+        width: 20%;
+        border: 2.5px solid $grey;
+        margin: auto;
+        margin-bottom: 80px;
+    }
+}

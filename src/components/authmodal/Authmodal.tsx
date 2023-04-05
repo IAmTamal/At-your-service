@@ -4,6 +4,8 @@ import authbanner from "../../assets/authmodal/authbanner.png"
 import { useBearStore } from '../../Store';
 import { LoginUser, RegisterUser } from '../../api/AuthApi'
 import { showErrorToast, showSuccessToast } from '../../utils/toasts';
+import Cookies from 'js-cookie';
+
 
 const Authmodal = () => {
     const toggleAuthModal = useBearStore((state) => state.toggleAuthModal);
@@ -28,6 +30,7 @@ const Authmodal = () => {
                 setcreds({ firstName: "", lastName: "", userName: "", email: "", password: "" });
                 toggleAuthModal();
                 document.body.style.overflow = "auto";
+                Cookies.set('loggedin', "yes", { expires: 30 });
             }
         } else {
             const response = await RegisterUser(creds);

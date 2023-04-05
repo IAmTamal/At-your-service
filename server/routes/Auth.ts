@@ -42,6 +42,7 @@ router.post("/register", async (req: Request, res: Response) => {
             return res.json({ message: "User already exists, please log in" } as any);
         }
 
+
         const hashedPassword = await bcrypt.hash(password, 12);
         const user = new User({
             firstName,
@@ -49,6 +50,9 @@ router.post("/register", async (req: Request, res: Response) => {
             userName,
             email,
             password: hashedPassword,
+            charge: 100,
+            slug: userName.toLowerCase() + Math.floor(Math.random() * 1000),
+            profilepic: "https://i.ibb.co/NS9thkp/profileicon.png",
         });
 
         await user.save();
@@ -76,6 +80,8 @@ router.post("/register", async (req: Request, res: Response) => {
  */
 
 
+
+
 router.post("/login", async (req: Request, res: Response) => {
     try {
         const data = req.body;
@@ -83,40 +89,30 @@ router.post("/login", async (req: Request, res: Response) => {
 
         const existingUser = await User.findOne({ email });
 
-        if (!existingUser) {
+        if (!existingUser)
             return res.json({ message: "User doesnot exists" } as any);
-        }
 
         const isPasswordCorrect = await bcrypt.compare(
             password,
             existingUser.password
         );
 
-        if (!isPasswordCorrect) {
+        if (!isPasswordCorrect)
             return res.json({ message: "Invalid credentials" } as any);
-        }
 
         const payload = { UserId: { id: existingUser._id } };
-
-        // set the expiration date to 1 month from the current date
-        const expirationDate = new Date();
-        expirationDate.setDate(expirationDate.getDate() + 30);
-
-        jwt.sign(payload, process.env.JWT_SECRET, (err: Error, token: String) => {
-            if (err) throw new Error("Something Went Wrong!");
-
-            res.cookie("token", token, {
-                httpOnly: true,
-                expires: expirationDate,
-            });
-
-            return res.status(201).json({ message: "Logged in successfully" });
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+            expiresIn: "30d",
         });
+
+        res.cookie("token", token, { httpOnly: true, sameSite: 'none', secure: true });
+        console.log(token);
+
+        return res.status(201).json({ message: "Logged in successfully" });
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error" } as any);
     }
 });
-
 
 /**
 
@@ -134,8 +130,9 @@ router.post("/login", async (req: Request, res: Response) => {
 
 
 
-router.get("/getuserdata", async (req: Request, res: Response) => {
+router.get("/getprofiledata", async (req: Request, res: Response) => {
     const token = req.cookies.token;
+    console.log(token);
 
     jwt.verify(token, process.env.JWT_SECRET, async (err: Error, decoded: any) => {
         if (err) {
@@ -144,6 +141,9 @@ router.get("/getuserdata", async (req: Request, res: Response) => {
 
         const UserId = decoded.UserId;
         const Userdetails = await User.findById(UserId.id);
+
+        console.log(Userdetails);
+
 
         return res.status(201).json(Userdetails);
     });
