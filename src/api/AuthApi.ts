@@ -5,11 +5,12 @@ import { showErrorToast } from "../utils/toasts";
 
 const API = import.meta.env.VITE_SERVEZY_API;
 
-
 export const LoginUser = async (creds: ICredentials) => {
 
     try {
-        const response = await Axios.post(`${API}/auth/login`, creds);
+        const response = await Axios.post(`${API}/auth/login`, creds, {
+            withCredentials: true,
+        });
         return response;
     } catch (error: any) {
         showErrorToast(error.message);
@@ -25,5 +26,16 @@ export const RegisterUser = async (creds: ICredentials) => {
     } catch (error) {
         console.log(error);
     }
-
 };
+/* 
+export const getUser = async () => {
+    try {
+
+        const response = await Axios.get(`${API}/auth/getuserdata`, {
+            withCredentials: true,
+        });
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+} */

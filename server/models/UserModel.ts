@@ -12,14 +12,8 @@ export interface IUser extends Document {
   availability: { day: string, time: string }[];
   keywords: string[];
   slug: string;
-  banner: {
-    data: Buffer;
-    contentType: string;
-  };
-  profilepic: {
-    data: Buffer;
-    contentType: string;
-  };
+  banner: string;
+  profilepic: string;
   createdAt: Date;
 }
 
@@ -35,14 +29,8 @@ const userSchema = new Schema<IUser>({
   availability: { type: [{ day: String, time: String }] },
   keywords: { type: [String] },
   slug: { type: String, unique: true },
-  banner: {
-    data: Buffer,
-    contentType: String,
-  },
-  profilepic: {
-    data: Buffer,
-    contentType: String,
-  },
+  banner: { type: String },
+  profilepic: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
 

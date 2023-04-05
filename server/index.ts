@@ -11,9 +11,10 @@ connectToMongo();
 const app = express();
 let port = process.env.PORT || 5000;
 
-app.use(cors());
 app.use(express.json());
+app.use(cors({ credentials: true, origin: process.env.FRONT_END_URL }));
 app.use(cookieParser());
+
 
 app.get("/", (req, res) => {
   res.send("HELLO FROM HOME");
