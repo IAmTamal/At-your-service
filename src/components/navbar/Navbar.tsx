@@ -15,9 +15,9 @@ const Navbar = () => {
 
     async function getuserdata() {
         const response = await fetchProfiledata();
-
         if (response?.status !== 201)
             return;
+
 
         setuserProfile({ userName: response?.data?.userName, slug: response?.data?.slug, profilepic: response?.data?.profilepic });
     }
@@ -86,5 +86,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-/* /${userprofile.slug} */

@@ -27,15 +27,3 @@ export const RegisterUser = async (creds: ICredentials) => {
         console.log(error);
     }
 };
-/* 
-export const getUser = async () => {
-    try {
-
-        const response = await Axios.get(`${API}/auth/getuserdata`, {
-            withCredentials: true,
-        });
-        return response;
-    } catch (error) {
-        console.log(error);
-    }
-} */

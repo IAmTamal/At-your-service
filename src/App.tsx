@@ -9,9 +9,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from './pages/profile/Profile'
 
-/* import dotenv from 'dotenv'; */
-/* dotenv.config(); */
-
 const App = () => {
 
   const isAuthmodalOpen = useBearStore((state) => state.isAuthmodalOpen);
