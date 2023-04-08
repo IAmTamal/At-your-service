@@ -50,7 +50,6 @@ router.post("/register", async (req: Request, res: Response) => {
             userName,
             email,
             password: hashedPassword,
-            charge: 100,
             slug: userName.toLowerCase() + Math.floor(Math.random() * 1000),
             profilepic: "https://i.ibb.co/NS9thkp/profileicon.png",
         });
@@ -106,7 +105,8 @@ router.post("/login", async (req: Request, res: Response) => {
         });
 
         res.cookie("token", token, { httpOnly: true, sameSite: 'none', secure: true });
-        console.log(token);
+
+        res.cookie("username", existingUser.userName);
 
         return res.status(201).json({ message: "Logged in successfully" });
     } catch (error) {
@@ -130,7 +130,7 @@ router.post("/login", async (req: Request, res: Response) => {
 
 
 
-router.get("/getprofiledata", async (req: Request, res: Response) => {
+/* router.get("/getprofiledata", async (req: Request, res: Response) => {
     const token = req.cookies.token;
     console.log(token);
 
@@ -147,6 +147,19 @@ router.get("/getprofiledata", async (req: Request, res: Response) => {
 
         return res.status(201).json(Userdetails);
     });
+})
+ */
+
+
+router.get("/getprofiledata/:username", async (req: Request, res: Response) => {
+    console.log(req.params.username);
+    const Userdetails = await User.findOne({ userName: req.params.username });
+
+
+    console.log(Userdetails);
+
+
+    return res.status(201).json(Userdetails);
 })
 
 module.exports = router;

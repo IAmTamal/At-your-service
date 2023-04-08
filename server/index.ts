@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 
 //auth routes
 app.use("/auth", require("./routes/Auth"));
+app.use("/service", require("./routes/Service"));
 
 
 app.listen(port, () => console.log("API IS RUNNING 🚀"));

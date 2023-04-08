@@ -6,6 +6,17 @@ export interface ICredentials {
     password: string;
 }
 
+export interface IService {
+    name: string;
+    description: string;
+    slug: string;
+    location: string;
+    charge: number;
+    availability: { day: string; time: string }[];
+    keywords: string[];
+    banner: string;
+}
+
 export interface Profiledataprops {
     _id: string;
     firstName: string;

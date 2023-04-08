@@ -27,10 +27,12 @@ const Authmodal = () => {
                 showErrorToast(response?.data?.message);
             } else {
                 showSuccessToast(response?.data?.message);
+                Cookies.set('loggedin', "yes", { expires: 30 });
+                /* Cookies.set('username', creds.userName, { expires: 30 }); */
                 setcreds({ firstName: "", lastName: "", userName: "", email: "", password: "" });
                 toggleAuthModal();
                 document.body.style.overflow = "auto";
-                Cookies.set('loggedin', "yes", { expires: 30 });
+
             }
         } else {
             const response = await RegisterUser(creds);
@@ -40,8 +42,7 @@ const Authmodal = () => {
             } else {
                 showSuccessToast(response?.data?.message);
                 setcreds({ firstName: "", lastName: "", userName: "", email: "", password: "" });
-                toggleAuthModal();
-                document.body.style.overflow = "auto";
+                toggleAuthstate("login");
             }
         }
     };

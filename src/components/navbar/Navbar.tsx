@@ -14,20 +14,24 @@ const Navbar = () => {
     const location = useLocation();
 
     async function getuserdata() {
-        const response = await fetchProfiledata();
-        if (response?.status !== 201)
-            return;
 
+        const username = Cookies.get("username");
+        if (username !== "" && username !== undefined && username !== null) {
+            const response = await fetchProfiledata(username);
+            if (response?.status !== 201)
+                return;
 
-        setuserProfile({ userName: response?.data?.userName, slug: response?.data?.slug, profilepic: response?.data?.profilepic });
+            setuserProfile({ userName: response?.data?.userName, slug: response?.data?.slug, profilepic: response?.data?.profilepic });
+        }
+
     }
 
     useEffect(() => {
-        if (Cookies.get("loggedin") !== "yes")
+        if (Cookies.get("username") === "")
             return;
 
         getuserdata();
-    }, [Cookies.get("loggedin")])
+    }, [Cookies.get("username")])
 
 
 
