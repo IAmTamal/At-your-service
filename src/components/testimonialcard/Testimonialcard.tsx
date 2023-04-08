@@ -1,8 +1,16 @@
 import React from 'react'
 import "./Testimonialcard.scss"
-import image from "../../assets/trending/dp.jpeg"
 
-const Testimonialcard = () => {
+interface TestimonialcardProps {
+    testimonial: {
+        name: string,
+        linkedin: string,
+        content: string,
+        profilepic: string
+    }
+}
+
+const Testimonialcard = ({ testimonial }: TestimonialcardProps) => {
     return (
         <>
 
@@ -10,13 +18,13 @@ const Testimonialcard = () => {
                 <div className="testimonialcard_parent">
 
                     <p className='testimonial_text'>
-                        I've been using Servezy's cleaning services for over a year now and I couldn't be happier. Their attention to detail is unmatched and my house always looks and smells amazing after they're done!
+                        {testimonial.content}
                     </p>
 
                     <div className="testimonial_imagediv">
-                        <img src={image} alt="" />
+                        <img src={testimonial.profilepic} alt="" />
 
-                        <p>Nilesh Das</p>
+                        <p>{testimonial.name}</p>
                     </div>
 
                 </div>

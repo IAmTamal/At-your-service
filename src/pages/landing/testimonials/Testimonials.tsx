@@ -6,6 +6,7 @@ import "swiper/css/autoplay";
 import { Pagination, Autoplay } from "swiper";
 import Testimonialcard from '../../../components/testimonialcard/Testimonialcard';
 import "./Testimonials.scss"
+import testimonialData from './testimonialData';
 
 
 const Testimonials = () => {
@@ -28,18 +29,13 @@ const Testimonials = () => {
                     modules={[Pagination, Autoplay]}
                     className="mySwiper"
                 >
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-
-
-
+                    {
+                        testimonialData.map((testimonial, index) => {
+                            return (
+                                <SwiperSlide key={index}> <Testimonialcard testimonial={testimonial} /> </SwiperSlide>
+                            )
+                        })
+                    }
                 </Swiper> : <Swiper
                     slidesPerView={1}
                     spaceBetween={40}
@@ -52,22 +48,14 @@ const Testimonials = () => {
                     modules={[Pagination, Autoplay]}
                     className="mySwiper"
                 >
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-                    <SwiperSlide> <Testimonialcard /> </SwiperSlide>
-
-
-
+                    {
+                        testimonialData.map((testimonial, index) => {
+                            return (
+                                <SwiperSlide key={index}> <Testimonialcard testimonial={testimonial} /> </SwiperSlide>
+                            )
+                        })
+                    }
                 </Swiper>}
-
-
-
 
                 <br />
                 <br />
