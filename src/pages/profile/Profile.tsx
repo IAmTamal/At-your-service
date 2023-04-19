@@ -7,9 +7,11 @@ import Services from "./services/Services";
 import Testimonials from "./testimonials/Testimonials";
 import Loading from "../../components/loading/Loading";
 import Cookies from "js-cookie";
+import Addmodal from "./addmodal/Addmodal";
 
 const Profile = () => {
     const params = useParams();
+    const [modalisOpen, setmodalisOpen] = useState(false);
 
     const {
         data: profiledata,
@@ -18,6 +20,8 @@ const Profile = () => {
     } = useSWR("profile-data", () => fetchProfiledata(params.username));
 
     if (isLoading) return <Loading />;
+
+
 
     return (
         <>
@@ -38,13 +42,17 @@ const Profile = () => {
                         </p>
 
                         {profiledata?.data?.userName === Cookies.get("username") ? (
-                            <button className="btn">Add a service</button>
+                            <button className="btn" onClick={() => {
+                                setmodalisOpen(true);
+                                document.body.style.overflow = "hidden";
+                            }} >Add a service</button>
                         ) : (
                             <button className="btn">Drop a mail</button>
                         )}
                     </div>
                 </div>
 
+                {modalisOpen && <Addmodal modalisOpen={modalisOpen} setmodalisOpen={setmodalisOpen} />}
                 <Services />
                 <Testimonials />
             </div>

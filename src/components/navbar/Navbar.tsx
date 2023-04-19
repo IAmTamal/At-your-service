@@ -53,31 +53,30 @@ const Navbar = () => {
                     <Link to={"/"}>About</Link>
                 </div>
 
-                {Cookies.get("loggedin") !== "yes" ?
-                    <div className="navbar_buttonsdiv">
-                        <button
-                            className="btn"
-                            onClick={() => {
-                                toggleAuthModal();
-                                toggleAuthstate("login");
-                                document.body.style.overflow = "hidden";
-                            }}
-                        >
-                            Login
-                        </button>
-                        <button
-                            className="btn"
-                            onClick={() => {
-                                toggleAuthModal();
-                                toggleAuthstate("signup");
-                                document.body.style.overflow = "hidden";
-                            }}
-                        >
-                            Signup
-                        </button>
-                    </div> : <Link to={`/${userprofile.userName}`}>
-                        <img className='navbar_profilepic' src={userprofile.profilepic} alt="" />
-                    </Link>}
+                {Cookies.get("username") ? <Link to={`/${userprofile.userName}`}>
+                    <img className='navbar_profilepic' src={userprofile.profilepic} alt="" />
+                </Link> : <div className="navbar_buttonsdiv">
+                    <button
+                        className="btn"
+                        onClick={() => {
+                            toggleAuthModal();
+                            toggleAuthstate("login");
+                            document.body.style.overflow = "hidden";
+                        }}
+                    >
+                        Login
+                    </button>
+                    <button
+                        className="btn"
+                        onClick={() => {
+                            toggleAuthModal();
+                            toggleAuthstate("signup");
+                            document.body.style.overflow = "hidden";
+                        }}
+                    >
+                        Signup
+                    </button>
+                </div>}
 
                 <img
                     src={hamburger}
